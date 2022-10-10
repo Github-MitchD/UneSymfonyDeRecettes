@@ -1,0 +1,9 @@
+/* Pagination */
+.pagination .page-link {
+    color: #333;
+}
+.active>.page-link, .page-link.active {
+    color: #111;
+    background-color: #dee2e6;
+    border-color: #dee2e6;
+}

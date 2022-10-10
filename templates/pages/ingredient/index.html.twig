@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Une Symfony de Recettes - Liste des ingrédients
+{% endblock %}
+
+{% block body %}
+
+	<div class="container mt-4">
+		<h1>Liste des ingrédients</h1>
+
+		{# knp_paginator - total items count #}
+		<div class="count text-secondary mt-4">
+			<h5 class="lead">Il y a
+				{{ ingredients.getTotalItemCount > 0 ? ingredients.getTotalItemCount : '0' }}
+				ingrédient{{ ingredients.getTotalItemCount > 1 ? 's' : '' }}
+				au total
+			</h5>
+		</div>
+
+		{% if ingredients.getTotalItemCount > 0 %}
+
+			<table class="table table-hover table-sm">
+				<thead>
+					<tr>
+						<th scope="col">Numéro</th>
+						<th scope="col">Nom</th>
+						<th scope="col">Prix</th>
+						<th scope="col">Date</th>
+						<th scope="col">Action</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					{% for ingredient in ingredients %}
+
+						<tr class="table-light">
+							<th scope="row">{{ ingredient.id }}</th>
+							<td>{{ ingredient.name|capitalize }}</td>
+							<td>{{ ingredient.price }}
+								€</td>
+							<td>{{ ingredient.createdAt|date("m/d/Y") }}</td>
+							<td>
+								<button type="button" class="btn btn-sm btn-warning">Action</button>
+							</td>
+						</tr>
+
+					{% endfor %}
+
+				</tbody>
+			</table>
+
+			{# display navigation #}
+			<div class="navigation d-flex justify-content-center mt-4">
+				{{ knp_pagination_render(ingredients) }}
+			</div>
+
+		{% endif %}
+
+	</div>
+
+{% endblock %}
