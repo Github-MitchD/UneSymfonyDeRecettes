@@ -8,6 +8,13 @@
 	<div class="container mt-4">
 		<h1>Liste des ingrédients</h1>
 
+		{# read and display just one flash message type #}
+		{% for message in app.flashes('success') %}
+			<div class="alert alert-success">
+				{{ message }}
+			</div>
+		{% endfor %}
+
 		{# knp_paginator - total items count #}
 		<div class="count text-secondary mt-4">
 			<h5 class="lead">Il y a
@@ -38,7 +45,7 @@
 							<td>{{ ingredient.name|capitalize }}</td>
 							<td>{{ ingredient.price }}
 								€</td>
-							<td>{{ ingredient.createdAt|date("m/d/Y") }}</td>
+							<td>{{ ingredient.createdAt|date("d/m/Y") }}</td>
 							<td>
 								<button type="button" class="btn btn-sm btn-warning">Action</button>
 							</td>

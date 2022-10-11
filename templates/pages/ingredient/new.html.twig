@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Une Symfony de Recettes - Ajouter un ingrédient
+{% endblock %}
+
+{% block body %}
+
+	<div
+		class="container mt-4">		
+
+		<h1>Ajouter un ingrédient</h1>
+
+		{{ form_start(form) }}
+
+		<div class="col-md-6">
+			{{ form_label(form.name) }}
+			{{ form_widget(form.name) }}
+			<div class="form-error">
+				{{ form_errors(form.name) }}
+			</div>
+		</div>
+		<div class="col-md-6">
+			{{ form_label(form.price) }}
+			{{ form_widget(form.price) }}
+			<div class="form-error">
+				{{ form_errors(form.price) }}
+			</div>
+		</div>
+
+		{{ form_end(form) }}
+
+	</div>
+</div>{% endblock %}
