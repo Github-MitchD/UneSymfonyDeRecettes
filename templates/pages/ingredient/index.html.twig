@@ -8,7 +8,9 @@
 	<div class="container mt-4">
 		<h1>Liste des ingrédients</h1>
 
-		<a href=" {{ path('ingredient.new' )}} " class="btn btn-info btn-sm"><i class="bi bi-plus-square"></i> Ajouter un ingrédient</a>
+		<a href=" {{ path('ingredient.new' )}} " class="btn btn-info btn-sm">
+			<i class="bi bi-plus-square"></i>
+			Ajouter un ingrédient</a>
 
 		{# read and display just one flash message type #}
 		{% for message in app.flashes('success') %}
@@ -50,10 +52,14 @@
 								€</td>
 							<td>{{ ingredient.createdAt|date("d/m/Y") }}</td>
 							<td>
-								<a href="/ingredient/edition/{{ ingredient.id }}" type="button" class="btn btn-sm btn-warning"><i class="bi bi-pencil"></i></a>
-								<a href="/ingredient/supprimer/{{ ingredient.id }}" type="button" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></a>
+								<a href="{{ path('ingredient.edit', {id: ingredient.id}) }}" type="button" class="btn btn-sm btn-warning">
+									<i class="bi bi-pencil"></i>
+								</a>
+								<a href="{{ path('ingredient.delete', {id: ingredient.id}) }}" type="button" class="btn btn-sm btn-danger">
+									<i class="bi bi-trash"></i>
+								</a>
 							</td>
-						</tr>
+						</tr>						
 
 					{% endfor %}
 
