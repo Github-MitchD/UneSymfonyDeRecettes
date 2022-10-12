@@ -8,10 +8,13 @@
 	<div class="container mt-4">
 		<h1>Liste des ingrédients</h1>
 
+		<a href=" {{ path('ingredient.new' )}} " class="btn btn-info btn-sm"><i class="bi bi-plus-square"></i> Ajouter un ingrédient</a>
+
 		{# read and display just one flash message type #}
 		{% for message in app.flashes('success') %}
-			<div class="alert alert-success">
+			<div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
 				{{ message }}
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 			</div>
 		{% endfor %}
 
@@ -29,11 +32,11 @@
 			<table class="table table-hover table-sm">
 				<thead>
 					<tr>
-						<th scope="col">Numéro</th>
-						<th scope="col">Nom</th>
-						<th scope="col">Prix</th>
-						<th scope="col">Date</th>
-						<th scope="col">Action</th>
+						<th style="width: 10%;">Numéro</th>
+						<th style="width: 40%;">Nom</th>
+						<th style="width: 20%;">Prix</th>
+						<th style="width: 20%;">Date</th>
+						<th style="width: 10%;">Action</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -47,7 +50,8 @@
 								€</td>
 							<td>{{ ingredient.createdAt|date("d/m/Y") }}</td>
 							<td>
-								<button type="button" class="btn btn-sm btn-warning">Action</button>
+								<a href="/ingredient/edition/{{ ingredient.id }}" type="button" class="btn btn-sm btn-warning"><i class="bi bi-pencil"></i></a>
+								<a href="/ingredient/supprimer/{{ ingredient.id }}" type="button" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></a>
 							</td>
 						</tr>
 

@@ -39,7 +39,7 @@ class IngredientType extends AbstractType
                 ],
                 'label' => 'Prix de l\'ingrédient en',
                 'label_attr' => [
-                    'class' => 'form-label mt-4 pe-2'
+                    'class' => 'form-label mt-4'
                 ],
                 'constraints' => [
                     new Assert\Positive(),
@@ -47,7 +47,7 @@ class IngredientType extends AbstractType
                 ]
             ])
             ->add('save', SubmitType::class, [
-                'label' => 'Ajouter l\'ingrédient',
+                'label' => 'Valider l\'ingrédient',
                 'attr' => [
                     'class' => 'btn btn-info mt-4'
                 ],

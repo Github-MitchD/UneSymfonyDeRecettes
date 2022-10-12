@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Une Symfony de Recettes - Ajouter un ingrédient
+{% block title %}Une Symfony de Recettes - Modifier un ingrédient
 {% endblock %}
 
 {% block body %}
 
 	<div class="container mt-4">
-		<h1>Ajouter un ingrédient</h1>
+		<h1>Modification de l'ingrédient</h1>
 		
-		<a href=" {{ path('ingredient.index' )}} " class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left-short"></i> Retour à la liste des ingrédients</a>
+		<a href=" {{ path('ingredient.index' )}} " class="btn btn-secondary btn-sm"><i class="bi bi-arrow-left-short"></i> Retour à la liste des ingrédients</a>        
 
 		{{ form_start(form) }}
 
